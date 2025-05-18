@@ -10,7 +10,6 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-
 #top-header {
   display: flex;
   justify-content: space-between;
@@ -93,6 +92,7 @@ nav a {
 
 #overlay-content p {
   font-size: 18px;
+  color: #1a1a1a;
 }
 
 #info {
@@ -128,11 +128,11 @@ nav a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /*gap: 10px;*/
+  /* gap: 10px; */
   margin: 10px;
   padding: 20px;
-  max-height: 150px;
-  width: auto
+  min-height: 150px;
+  width: auto;
 }
 
 .item a {    
@@ -146,7 +146,7 @@ nav a {
   body {
     background-image: url('../images/site/checkerboard.jpg');    
   }
-  
+
   body, #wrapper {
     margin: 20px 80px;
     background-color: #ffffff;
@@ -155,8 +155,7 @@ nav a {
   #info {
     flex-direction: row;
   }
-
-  .item-image {
+ .item-image {
     width: 200px;
   }
 
