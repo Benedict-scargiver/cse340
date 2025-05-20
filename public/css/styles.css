@@ -33,7 +33,7 @@ body {
 }
 
 nav {
-  background-color: #1a1a1a;
+  background-color: #232323; /* Slightly softer black */
   color: #ffffff;
   padding: 10px 0;
 }
@@ -66,7 +66,7 @@ nav a {
 #overlay {
   margin-top: 80px;
   position: relative;
-  background-color: #f8f8f8;
+  background-color: #c2c2c2; /* Adjusted for better contrast */
   opacity: 0.7;
   max-width: 250px;
   height: 150px;
@@ -124,17 +124,17 @@ nav a {
 }
 
 .item-image {
-  background-color: #7f57b4;
+  background-color: #3e7b94; /* Improved accessibility & contrast */
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* gap: 10px; */
   margin: 10px;
   padding: 20px;
   min-height: 150px;
   width: auto;
 }
+
 
 .item a {    
   font-weight: 600;
@@ -162,16 +162,13 @@ nav a {
   }
 
   #wrapper {
-    border-radius: 10px;
-    border: 5px solid #7f57b4;
-    padding: 10px;
-  }
+  border-radius: 10px;
+  border: 5px solid #2c5b6e; /* Slightly darker teal for border */
+  padding: 10px;
+}
 
   #overlay {    
-    max-width: 460px;
-  }
-
-  #overlay-content {
-    top: 260px;
+    max-width: 260px;
+    height: 160px;
   }
 }
