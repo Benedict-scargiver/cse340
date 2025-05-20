@@ -1,150 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+/******* Change Box Model ***************/
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    margin: 0;
-    padding: 0;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* Header */
-header {
-    background-color: #fff;
-    border-bottom: 1px solid #ccc;
-    padding: 10px 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
 }
 
-header .siteName a {
-    text-decoration: none;
-    color: #333;
-    font-size: 24px;
-    font-weight: bold;
+#top-header a {
+  color: #1a1a1a;
+  text-decoration: none;
 }
 
-header #tools a {
-    text-decoration: none;
-    color: #333;
-    font-size: 14px;
+.siteName a {
+  font-size: 36px;
+  font-weight: 600;
 }
 
-/* Navigation */
+#tools a {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
 nav {
-    background-color: #333;
-    color: #fff;
+  background-color: #1a1a1a;
+  color: #ffffff;
+  padding: 10px 0;
 }
 
 nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: space-around;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px;
+  line-height: 0;
+  font-size: 18px;
 }
 
-nav ul li {
-    padding: 10px 20px;
+nav a {
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: #fff;
-}
-
-/* Hero Section */
 #hero {
-    background-color: #fff;
-    text-align: center;
-    padding: 20px 0;
+  height: 400px;
+  background: center center no-repeat url("../images/vehicles/delorean.jpg");
 }
 
 #hero h1 {
-    font-size: 32px;
-    margin: 0;
+  font-size: 32px;
+  font-weight: 600;
 }
 
-/* Overlay */
 #overlay {
-    position: relative;
+  margin-top: 80px;
+  position: relative;
+  background-color: #f8f8f8;
+  opacity: 0.7;
+  max-width: 250px;
+  height: 150px;
 }
 
 #overlay-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-}
-
-#overlay-content h2 {
-    font-size: 28px;
-    margin: 0 0 10px 0;
-}
-
-#overlay-content p {
-    margin: 5px 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: auto;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  border-radius: 10px;
 }
 
 #overlay-content a img {
-    width: 150px;
-    height: auto;
+  width: 150px;
+  height: 50px;
 }
 
-/* Info Section */
+#overlay-content h2 {
+  font-size: 22px;
+}
+
+#overlay-content p {
+  font-size: 15px;
+  color: #1a1a1a;
+}
+
 #info {
-    display: flex;
-    justify-content: space-around;
-    padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  padding: 0 10px;
 }
 
-#reviews, #upgrades {
-    width: 45%;
+#reviews {
+  line-height: 2;  
 }
 
 #reviews h2, #upgrades h2 {
-    font-size: 24px;
-    border-bottom: 2px solid #333;
-    padding-bottom: 10px;
+  font-size: 32px;
 }
 
-#reviews ul {
-    list-style: none;
-    padding: 0;
+#reviews li {
+  font-size: 20px;
 }
 
-#reviews ul li {
-    margin: 10px 0;
+#upgrades {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
 }
 
-/* Upgrades */
-#upgrades .item {
-    display: flex;
-    align-items: center;
-    margin: 10px 0;
+#upgrades h2 {
+  grid-column:  3/1;
 }
 
-#upgrades .item-image img {
-    width: 50px;
-    height: auto;
-    margin-right: 10px;
+.item-image {
+  background-color: #7f57b4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* gap: 10px; */
+  margin: 10px;
+  padding: 20px;
+  min-height: 150px;
+  width: auto;
 }
 
-#upgrades a {
-    text-decoration: none;
-    color: #333;
-    font-size: 16px;
+.item a {    
+  font-weight: 600;
+  font-size: 18px;  
+  display: flex;  
+  justify-content: center;
 }
 
-/* Footer */
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 10px 0;
-}
+@media screen and (min-width: 960px) {
+  body {
+    background-image: url('../images/site/checkerboard.jpg');    
+  }
 
-footer .copyright {
-    margin: 0;
+  body, #wrapper {
+    margin: 20px 80px;
+    background-color: #ffffff;
+  }
+
+  #info {
+    flex-direction: row;
+  }
+
+   .item-image {
+    width: 200px;
+  }
+
+  #wrapper {
+    border-radius: 10px;
+    border: 5px solid #7f57b4;
+    padding: 10px;
+  }
+
+  #overlay {    
+    max-width: 460px;
+  }
+
+  #overlay-content {
+    top: 260px;
+  }
 }
