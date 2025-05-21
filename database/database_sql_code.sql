@@ -1,5 +1,10 @@
-CREATE TYPE public.account_type AS ENUM
-    ('Client', 'Employee', 'Admin');
+-- Database: 'cse 340 project'
+-- Assignment 2, task 2
+
+CREATE TYPE public.account_type AS ENUM(
+  'Client', 
+  'Employee', 
+  'Admin');
 
 ALTER TYPE public.account_type
     OWNER TO cse340benedict;        
