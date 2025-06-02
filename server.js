@@ -7,9 +7,12 @@
  *************************/
 const express = require("express")
 const expressLayouts = require("express-ejs-layouts")
-const env = require("dotenv").config()
+const dotenv = require("dotenv").config()
 const app = express()
 const static = require("./routes/static")
+const inventoryRoute = require("./routes/inventoryRoutes")
+const baseController = require("./controllers/baseController")
+const utilities = require("./utilities")
 
 
 /* ***********************
@@ -24,20 +27,42 @@ app.set("layout", "layouts/layout") //not at views root
  *************************/
 app.use(static)
 //index route
-app.get("/", function(req, res){
-  res.render("index", {title: "Home"})
+app.get("/", utilities.handleErrors(baseController.buildHome))
+
+app.use("/inv", inventoryRoute)
+
+// FIle not found
+app.use(async (req, res, next) => {
+  next({
+    status: 404, 
+    message: 'This is not the page you are looking for.'
+  })
+})
+
+/* ***********************
+* Express Error Handler
+*************************/
+app.use(async (err, req, res, next) => {
+  let nav = await utilities.getNav()
+  console.error(`Error at: "${req.originalUrl}": ${err.message}`)
+  if(err.status == 404) {message = err.message} else {message = 'Oops, looks like something went wrong! Maybe try a different route?'}
+  res.render("errors/error", {
+    title: err.status || '500 Server Error',
+    message,
+    nav,
+  })
 })
 
 /* ***********************
  * Local Server Information
  * Values from .env (environment) file
  *************************/
-const port = process.env.PORT
-const host = process.env.HOST
+const port = process.env.PORT || 5500;
+const host = process.env.HOST || 'localhost';
 
 /* ***********************
  * Log statement to confirm server operation
  *************************/
-app.listen(port, () => {
-  console.log(`app listening on ${host}:${port}`)
-})
+app.listen(port, host, () => {
+  console.log(`app listening on ${host}:${port}`);
+});
